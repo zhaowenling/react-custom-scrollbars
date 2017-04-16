@@ -230,16 +230,16 @@ export default createClass({
         /* istanbul ignore if */
         if (typeof document === 'undefined') return;
         const { view, trackHorizontal, trackVertical, thumbHorizontal, thumbVertical } = this.refs;
-        view.addEventListener('scroll', this.handleScroll);
+        view && view.addEventListener('scroll', this.handleScroll);
         if (!getScrollbarWidth()) return;
-        trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
-        trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown);
-        thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown);
-        thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown);
+        trackHorizontal && trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
+        trackHorizontal && trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
+        trackHorizontal && trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
+        trackVertical && trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter);
+        trackVertical && trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave);
+        trackVertical && trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown);
+        thumbHorizontal && thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown);
+        thumbVertical && thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown);
         window.addEventListener('resize', this.handleWindowResize);
     },
 
@@ -247,16 +247,16 @@ export default createClass({
         /* istanbul ignore if */
         if (typeof document === 'undefined') return;
         const { view, trackHorizontal, trackVertical, thumbHorizontal, thumbVertical } = this.refs;
-        view.removeEventListener('scroll', this.handleScroll);
+        view && view.removeEventListener('scroll', this.handleScroll);
         if (!getScrollbarWidth()) return;
-        trackHorizontal.removeEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackHorizontal.removeEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackHorizontal.removeEventListener('mousedown', this.handleHorizontalTrackMouseDown);
-        trackVertical.removeEventListener('mouseenter', this.handleTrackMouseEnter);
-        trackVertical.removeEventListener('mouseleave', this.handleTrackMouseLeave);
-        trackVertical.removeEventListener('mousedown', this.handleVerticalTrackMouseDown);
-        thumbHorizontal.removeEventListener('mousedown', this.handleHorizontalThumbMouseDown);
-        thumbVertical.removeEventListener('mousedown', this.handleVerticalThumbMouseDown);
+        trackHorizontal && trackHorizontal.removeEventListener('mouseenter', this.handleTrackMouseEnter);
+        trackHorizontal && trackHorizontal.removeEventListener('mouseleave', this.handleTrackMouseLeave);
+        trackHorizontal && trackHorizontal.removeEventListener('mousedown', this.handleHorizontalTrackMouseDown);
+        trackVertical && trackVertical.removeEventListener('mouseenter', this.handleTrackMouseEnter);
+        trackVertical && trackVertical.removeEventListener('mouseleave', this.handleTrackMouseLeave);
+        trackVertical && trackVertical.removeEventListener('mousedown', this.handleVerticalTrackMouseDown);
+        thumbHorizontal && thumbHorizontal.removeEventListener('mousedown', this.handleHorizontalThumbMouseDown);
+        thumbVertical && thumbVertical.removeEventListener('mousedown', this.handleVerticalThumbMouseDown);
         window.removeEventListener('resize', this.handleWindowResize);
         // Possibly setup by `handleDragStart`
         this.teardownDragging();
